@@ -18,10 +18,14 @@ fetch(apiEntry)
 
 // let's turn this to an async/await function
 async function fetchData(apiEntry) {
-    const response = await fetch(apiEntry);
-    const data = await response.json();
-    console.log(data);
-    return data;
+    try {
+        const response = await fetch(apiEntry);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (err) {
+        console.error(err);
+    }
 }
 fetchData(apiEntry);
 
